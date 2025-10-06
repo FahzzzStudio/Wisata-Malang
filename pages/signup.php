@@ -1,6 +1,9 @@
 <?php 
 // Include header yang sudah ada session_start dan koneksi database
+require_once __DIR__ . '/../config/functions.php';
+
 include '../includes/header.php'; 
+
 
 // Jika sudah login, redirect ke profile
 if (isset($_SESSION['user_id'])) {
@@ -33,15 +36,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
- Hero Section 
+<link rel="stylesheet" href="<?php echo $base_url; ?> assets/css/style.css">
+<link rel="stylesheet" href="<?php echo $base_url; ?> assets/css/responsive.css">
+<!-- Hero Section  -->
 <section class="hero" style="height: 300px;">
     <div class="hero-content">
         <h1>Sign Up</h1>
     </div>
 </section>
 
- Sign Up Form 
+<!-- Sign Up Form  -->
 <section class="section">
     <div class="container">
         <div style="max-width: 500px; margin: 0 auto;">
@@ -105,4 +109,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 </section>
 
-<?php include '../includes/footer.php'; ?>

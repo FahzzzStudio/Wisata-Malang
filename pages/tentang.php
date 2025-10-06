@@ -3,14 +3,14 @@
 include '../includes/header.php'; 
 ?>
 
-Hero Section 
+<!-- Hero Section  -->
 <section class="hero" style="height: 300px;">
     <div class="hero-content">
         <h1>Tentang Kami</h1>
     </div>
 </section>
 
-About Content 
+<!-- About Content  -->
 <section class="section">
     <div class="container">
         <div style="max-width: 800px; margin: 0 auto;">

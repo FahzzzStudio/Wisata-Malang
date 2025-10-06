@@ -31,7 +31,9 @@ $halaman_sekarang = basename($_SERVER['PHP_SELF'], '.php');
     <link rel="stylesheet" href="<?php echo $base_url; ?>assets/css/style.css">
     <link rel="stylesheet" href="<?php echo $base_url; ?>assets/css/responsive.css">
 
-    
+    <!-- Font Poppnis Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Font Awesome untuk icon  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -41,7 +43,7 @@ $halaman_sekarang = basename($_SERVER['PHP_SELF'], '.php');
         <div class="container">
             <div class="nav-wrapper">
                 <!-- Logo  -->
-                <a href="/index.php" class="logo">
+                <a href="../pages/index.php" class="logo">
                     <span class="logo-text">Malang</span>
                 </a>
                 
@@ -55,7 +57,7 @@ $halaman_sekarang = basename($_SERVER['PHP_SELF'], '.php');
                 <!-- Navigation Menu  -->
                 <div class="nav-menu" id="navMenu">
                     <ul class="nav-links">
-                        <li><a href="index.php" class="<?php echo $halaman_sekarang == 'index' ? 'active' : ''; ?>">Beranda</a></li>
+                        <li><a href="../pages/index.php" class="<?php echo $halaman_sekarang == 'index' ? 'active' : ''; ?>">Beranda</a></li>
                         <li><a href="../pages/kategori.php" class="<?php echo $halaman_sekarang == 'kategori' ? 'active' : ''; ?>">Kategori</a></li>
                         <li><a href="../pages/tentang.php" class="<?php echo $halaman_sekarang == 'tentang' ? 'active' : ''; ?>">Tentang Kami</a></li>
                         <li><a href="../pages/kontak.php" class="<?php echo $halaman_sekarang == 'kontak' ? 'active' : ''; ?>">Kontak</a></li>
@@ -71,8 +73,8 @@ $halaman_sekarang = basename($_SERVER['PHP_SELF'], '.php');
                                 <i class="fas fa-user"></i>
                             </a>
                         <?php else: ?>
-                            <a href="/pages/signin.php" class="btn btn-outline">Sign In</a>
-                            <a href="/pages/signup.php" class="btn btn-primary">Sign Up</a>
+                            <a href="../pages/signin.php" class="btn btn-outline">Sign In</a>
+                            <a href="../pages/signup.php" class="btn btn-primary">Sign Up</a>
                         <?php endif; ?>
                     </div>
                 </div>

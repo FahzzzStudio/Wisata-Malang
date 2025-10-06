@@ -1,6 +1,6 @@
 <?php 
 // Include header yang sudah ada session_start dan koneksi database
-include 'includes/header.php'; 
+include '../includes/header.php'; 
 
 // Ambil data wisata populer (6 wisata pertama)
 $wisata_populer = ambilSemuaWisata($db);
@@ -266,4 +266,4 @@ $wisata_populer = array_slice($wisata_populer, 0, 6);
     </div>
 </section>
 
-<?php include 'includes/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>

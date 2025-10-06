@@ -31,14 +31,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-Hero Section 
+<!-- Hero Section  -->
 <section class="hero" style="height: 300px;">
     <div class="hero-content">
         <h1>Sign In</h1>
     </div>
 </section>
 
-Sign In Form 
+<!-- Sign In Form  -->
 <section class="section">
     <div class="container">
         <div style="max-width: 500px; margin: 0 auto;">
@@ -80,4 +80,3 @@ Sign In Form
     </div>
 </section>
 
-<?php include '../includes/footer.php'; ?>

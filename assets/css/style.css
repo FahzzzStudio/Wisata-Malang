@@ -26,8 +26,8 @@ box-sizing: border-box;
 --black: #212529;
 
 /* Typography */
---font-primary: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
---font-heading: "Arial", sans-serif;
+--font-primary: "Poppins", "Montserrat", sans-serif;
+--font-heading: "Montserrat", "Poppins", sans-serif;
 
 /* Spacing */
 --spacing-xs: 0.5rem;
