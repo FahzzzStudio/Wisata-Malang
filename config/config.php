@@ -1,7 +1,7 @@
 <?php
 // Konfigurasi dasar aplikasi
 $base_url = "http://localhost/app_wisata_malang/";
-define('BASE_URL', 'http://localhost/malang-tourism/');
+define('BASE_URL', 'http://localhost/app_wisata_malang/');
 define('SITE_NAME', 'Malang');
 define('SITE_DESCRIPTION', 'Malang adalah destinasi yang menawarkan semua jenis liburan, mulai dari petualangan alam, wisata buatan, hingga pengalaman budaya yang otentik.');
 

@@ -59,12 +59,17 @@ function cariWisata($koneksi, $keyword) {
 
 // Fungsi untuk menambah wisata baru
 function tambahWisata($koneksi, $data) {
-    $nama = mysqli_real_escape_string($koneksi, $data['nama']);
-    $kategori = mysqli_real_escape_string($koneksi, $data['kategori']);
-    $lokasi = mysqli_real_escape_string($koneksi, $data['lokasi']);
-    $deskripsi = mysqli_real_escape_string($koneksi, $data['deskripsi']);
-    $gambar = mysqli_real_escape_string($koneksi, $data['gambar']);
+    $nama = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['nama']));
+    $kategori = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['kategori']));
+    $lokasi = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['lokasi']));
+    $deskripsi = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['deskripsi']));
+    $gambar = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['gambar']));
     $rating = isset($data['rating']) ? floatval($data['rating']) : 5.0;
+
+    // Upload file gambar
+    $poster = $_FILES['poster']['name'];
+    $tmp = $_FILES['poster']['tmp_name'];
+    move_uploaded_file($tmp, "../../uploads/" . $poster);
     
     $query = "INSERT INTO wisata (nama, kategori, lokasi, deskripsi, gambar, rating) 
             VALUES ('$nama', '$kategori', '$lokasi', '$deskripsi', '$gambar', '$rating')";
@@ -74,13 +79,24 @@ function tambahWisata($koneksi, $data) {
 
 // Fungsi untuk mengupdate wisata
 function updateWisata($koneksi, $id, $data) {
-    $id = mysqli_real_escape_string($koneksi, $id);
-    $nama = mysqli_real_escape_string($koneksi, $data['nama']);
-    $kategori = mysqli_real_escape_string($koneksi, $data['kategori']);
-    $lokasi = mysqli_real_escape_string($koneksi, $data['lokasi']);
-    $deskripsi = mysqli_real_escape_string($koneksi, $data['deskripsi']);
-    $gambar = mysqli_real_escape_string($koneksi, $data['gambar']);
+    $id = htmlspecialchars(mysqli_real_escape_string($koneksi, $id));
+    $nama = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['nama']));
+    $kategori = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['kategori']));
+    $lokasi = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['lokasi']));
+    $deskripsi = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['deskripsi']));
+    $gambar = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['gambar']));
     $rating = isset($data['rating']) ? floatval($data['rating']) : 5.0;
+
+    // Cek poster baru
+    if ($_FILES['poster']['name'] != '') {
+        $poster = $_FILES['poster']['name'];
+        $tmp = $_FILES['poster']['tmp_name'];
+        move_uploaded_file($tmp, "../../uploads/" . $poster);
+    } else {
+        // Kalau tidak ganti, tetap pakai yang lama
+        $posterRow = mysqli_fetch_assoc($koneksi, "SELECT gambar FROM wisata WHERE id=$id");
+        $poster = $posterRow['poster'];
+    }
     
     $query = "UPDATE wisata SET 
             nama = '$nama',

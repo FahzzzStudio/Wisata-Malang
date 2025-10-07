@@ -12,7 +12,7 @@ $wisata_populer = array_slice($wisata_populer, 0, 6);
     <div class="hero-content">
         <h1>Jelajahi dan nikmati<br>keindahannya seluruh wisata<br>Malang Raya</h1>
         <p>Temukan destinasi wisata terbaik di Malang</p>
-        <a href="/pages/kategori.php" class="btn btn-primary">Mulai Jelajahi</a>
+        <a href="../pages/signin.php" class="btn btn-primary">Mulai Jelajahi</a>
     </div>
 </section>
 
@@ -241,6 +241,9 @@ $wisata_populer = array_slice($wisata_populer, 0, 6);
             </div>
             <div class="gallery-item">
                 <img src="/placeholder.svg?height=250&width=300" alt="Gallery 7">
+            </div>
+            <div class="gallery-item">
+                <img src="/placeholder.svg?height=250&width=300" alt="Gallery 8">
             </div>
         </div>
     </div>

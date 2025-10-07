@@ -1,8 +1,9 @@
 <?php 
 // Include header yang sudah ada session_start dan koneksi database
 require_once __DIR__ . '/../config/functions.php';
+// require_once __DIR__ . '/../config/config.php';
 
-include '../includes/header.php'; 
+// include '../includes/header.php'; 
 
 
 // Jika sudah login, redirect ke profile
