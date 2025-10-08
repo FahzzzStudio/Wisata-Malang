@@ -3,6 +3,11 @@ require_once "../../../config/functions.php";
 require_once "../../../config/database.php";
 include "../../../includes/sidebar_admin.php";
 
+if (isset($_GET['hapus'])) {
+    hapusWisata($koneksi, $_GET['hapus']);
+    header("location: index.php");
+}
+
 $wisata = ambilSemuaWisata($db);
 
 ?>
@@ -47,8 +52,8 @@ $wisata = ambilSemuaWisata($db);
                         <td><img src="../../../uploads/<?= $w['gambar'] ?>" width="80"></td>
                         <td>
                             <div class="action-buttons">
-                                <a href="edit_wisata.php?<?= $w['id'] ?>">Edit</a>
-                                <a href="hapus_wisata.php?<?= $w['id'] ?>" onclick="return confirm('Yakin?')">Hapus</a>
+                                <a href="edit.php?<?= $w['id'] ?>">Edit</a>
+                                <a href="hapus.php?<?= $w['id'] ?>" onclick="return confirm('Yakin?')">Hapus</a>
                             </div>
                         </td>
                     </tr>

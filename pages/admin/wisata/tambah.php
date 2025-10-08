@@ -40,6 +40,15 @@ if (isset($_POST['tambah'])) {
 
                 <label for="gambar">Foto Wisata</label>
                 <input type="file" name="gambar" id="gambar" accept="image/*">
+
+                <button type="submit" class="btn btn-primary">
+                    Tambah Wisata
+                </button>
+                <button class="btn btn-primary">
+                    <a href="index.php" class="btn btn-primary">
+                        Batal
+                    </a>
+                </button>
             </form>
         </div>
     </div>
