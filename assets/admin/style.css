@@ -125,3 +125,10 @@ body {
 .sidebar-menu a.active::before {
     opacity: 1;
 }
+
+.main-content {
+    margin-left: 80px;
+    margin-top: 70pc;
+    padding: 30px;
+    min-height: calc(100vh - 70px);
+}

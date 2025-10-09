@@ -78,8 +78,9 @@ function tambahWisata($koneksi, $data) {
 }
 
 // Fungsi untuk mengupdate wisata
-function updateWisata($koneksi, $id, $data) {
-    $id = htmlspecialchars(mysqli_real_escape_string($koneksi, $id));
+function updateWisata($koneksi, $data, $file, $id) {
+    // $id = htmlspecialchars(mysqli_real_escape_string($koneksi, $id));
+    $id = (int)$id;
     $nama = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['nama']));
     $kategori = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['kategori']));
     $lokasi = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['lokasi']));
@@ -88,14 +89,15 @@ function updateWisata($koneksi, $id, $data) {
     $rating = isset($data['rating']) ? floatval($data['rating']) : 5.0;
 
     // Cek poster baru
-    if ($_FILES['poster']['name'] != '') {
-        $poster = $_FILES['poster']['name'];
-        $tmp = $_FILES['poster']['tmp_name'];
-        move_uploaded_file($tmp, "../../uploads/" . $poster);
+    if ($_FILES['gambar']['name'] != '') {
+        $gambar = $_FILES['gambar']['name'];
+        $tmp = $_FILES['gambar']['tmp_name'];
+        move_uploaded_file($tmp, "../../uploads/" . $gambar);
     } else {
         // Kalau tidak ganti, tetap pakai yang lama
-        $posterRow = mysqli_fetch_assoc($koneksi, "SELECT gambar FROM wisata WHERE id=$id");
-        $poster = $posterRow['poster'];
+        $result = mysqli_query($koneksi, "SELECT gambar FROM wisata WHERE id=$id");
+        $gambarRow = mysqli_fetch_assoc($result);
+        $gambar = $gambarRow['gambar'];
     }
     
     $query = "UPDATE wisata SET 

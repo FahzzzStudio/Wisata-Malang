@@ -17,9 +17,10 @@ $wisata = ambilSemuaWisata($db);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../../assets/admin/style.css?v=<?= time() ?>">
 </head>
 <body>
-    <div class="content">
+    <div class="main-content">
         <div class="page-header">
             <h1>Kelola Data Wisata</h1>
             <p>Tempat dimana untuk mengelola data wisata yang ada</p>
@@ -52,8 +53,8 @@ $wisata = ambilSemuaWisata($db);
                         <td><img src="../../../uploads/<?= $w['gambar'] ?>" width="80"></td>
                         <td>
                             <div class="action-buttons">
-                                <a href="edit.php?<?= $w['id'] ?>">Edit</a>
-                                <a href="hapus.php?<?= $w['id'] ?>" onclick="return confirm('Yakin?')">Hapus</a>
+                                <a href="edit.php?id=<?= $w['id'] ?>">Edit</a>
+                                <a href="hapus.php?id=<?= $w['id'] ?>" onclick="return confirm('Yakin?')">Hapus</a>
                             </div>
                         </td>
                     </tr>
