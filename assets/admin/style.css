@@ -52,13 +52,17 @@ body {
     font-family: var(--font-primary);
     color: var(--dark);
     line-height: 1.6;
-    background-color: var(--white);
+    min-height: 100vh;
+    background: var(--gray);
 }
 
+/* Sidebar */
+
 .sidebar {
-    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    background: var(--primary-color);
     width: 280px;
     min-height: 100vh;
+    position: fixed;
     top: 0;
     left: 0;
     padding: 30px 20px;
@@ -69,11 +73,18 @@ body {
 }
 
 .sidebar-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h2{
     text-align: 22px;
     color: #ffffff;
     margin: 0;
     font-weight: 700;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: white;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -81,7 +92,7 @@ body {
 
 .sidebar-menu {
     list-style: none;
-    padding: 0;
+    padding: 0px;
     margin: 0;
     flex-grow: 1;
 }
@@ -92,7 +103,7 @@ body {
 
 .sidebar-menu a {
     text-decoration: none;
-    color: #94a3b8;
+    color: #ffffff;
     font-size: 15px;
     font-weight: 500;
     display: flex;
@@ -108,7 +119,7 @@ body {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #667eea;
+    background: var(--primary-dark);
     margin-right: 12px;
     opacity: 0;
     transition: all 0.3s ease;
@@ -116,8 +127,8 @@ body {
 
 .sidebar-menu a:hover,
 .sidebar-menu a.active {
-    background: rgb(102, 126, 234, 0.15);
-    color: #ffffff;
+    background: var(--white);
+    color: var(--primary-color);
     transform: translateX(4px);
 }
 
@@ -126,9 +137,184 @@ body {
     opacity: 1;
 }
 
+/* Untuk geser */
+
 .main-content {
-    margin-left: 80px;
-    margin-top: 70pc;
+    margin-left: 280px;
+    margin-top: 10px;
     padding: 30px;
     min-height: calc(100vh - 70px);
+}
+
+.page-header {
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    /* color: #fff; */
+    margin-bottom: 8px;
+}
+
+.page-subtitle {
+    font-size: 16px;
+    color: var(--dark-gray);
+    margin: 0;
+}
+
+/* Form */
+
+.form-container {
+    background: var(--light-gray);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.form-container h2 {
+    color:var(--primary-color);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-container label {
+    display: block;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    /* border: 1px solid rgba(255, 255, 255, 0.2); */
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    padding: 12px 16px;
+    color: #e2e8f0;
+    font-size: 14px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: var(--primary-light);
+}
+
+.form-container textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-container button {
+    font-family: "poppins", sans-serif;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+    padding: 14px 28px;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-container button:hover {
+    transform: translateY(-2px);
+}
+
+/* Tabel */
+
+.table-container {
+    background: var(--white);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.table-container h2 {
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    padding-bottom: 30px;
+    /* padding: 24px 30px; */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+    background: var(--primary-dark);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    color: var(--black);
+    font-size: 14px;
+}
+
+td img {
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Button Aksi */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.action-buttons a {
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.action-buttons a:first-child {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.action-buttons a:last-child {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.action-buttons a:hover {
+    transform: translateY(-1px);
 }

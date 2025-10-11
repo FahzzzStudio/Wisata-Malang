@@ -16,14 +16,14 @@ $wisata = ambilSemuaWisata($db);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Wisata</title>
     <link rel="stylesheet" href="../../../assets/admin/style.css?v=<?= time() ?>">
 </head>
 <body>
     <div class="main-content">
         <div class="page-header">
             <h1>Kelola Data Wisata</h1>
-            <p>Tempat dimana untuk mengelola data wisata yang ada</p>
+            <p class="page-subtitle">Tempat dimana untuk mengelola data wisata yang ada</p>
             <a href="../../../pages/admin/wisata/tambah.php">Tambah Wisata</a>
         </div>
 
@@ -36,7 +36,7 @@ $wisata = ambilSemuaWisata($db);
                         <th>Nama</th>
                         <th>Kategori</th>
                         <th>Lokasi</th>
-                        <th>Deskripsi</th>
+                        <!-- <th>Deskripsi</th> -->
                         <th>Gambar</th>
                         <th>Aksi</th>
                     </tr>
@@ -49,7 +49,7 @@ $wisata = ambilSemuaWisata($db);
                         <td><?= $w['nama'] ?></td>
                         <td><?= $w['kategori'] ?></td>
                         <td><?= $w['lokasi'] ?></td>
-                        <td><?= $w['deskripsi'] ?></td>
+                        <!-- <td><?= $w['deskripsi'] ?></td> -->
                         <td><img src="../../../uploads/<?= $w['gambar'] ?>" width="80"></td>
                         <td>
                             <div class="action-buttons">

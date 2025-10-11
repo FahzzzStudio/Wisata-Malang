@@ -17,6 +17,7 @@ if (isset($_POST['tambah'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Data Wisata</title>
+    <link rel="stylesheet" href="../../../assets/admin/style.css?v=<?= time() ?>">
 </head>
 <body>
     <div class="main-content">
@@ -41,11 +42,11 @@ if (isset($_POST['tambah'])) {
                 <label for="gambar">Foto Wisata</label>
                 <input type="file" name="gambar" id="gambar" accept="image/*">
 
-                <button type="submit" class="btn btn-primary">
+                <button type="submit">
                     Tambah Wisata
                 </button>
-                <button class="btn btn-primary">
-                    <a href="index.php" class="btn btn-primary">
+                <button>
+                    <a href="index.php">
                         Batal
                     </a>
                 </button>

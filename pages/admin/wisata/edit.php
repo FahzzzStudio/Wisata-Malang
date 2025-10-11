@@ -33,13 +33,12 @@ if (isset($_POST['update'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Data Wisata</title>
+    <link rel="stylesheet" href="../../../assets/admin/style.css?v=<?= time() ?>">
 </head>
 <body>
     <div class="main-content">
         <div class="form-container">
-            <h2><i class="fas fa-edit"></i>
-                Edit Data Wisata
-            </h2>
+            <h2>Edit Data Wisata</h2>
             <form action="" method="post" enctype="multipart/form-data">
 
                 <label for="nama">Nama Wisata</label>
@@ -61,7 +60,7 @@ if (isset($_POST['update'])) {
 
                 <label for="">Upload file gambar baru</label>
                 <input type="file" name="gambar" id="gambar" accept="image/*">
-                <small>* kosongkan jika tidak ingin mengubah gambar</small>
+                <small>* kosongkan jika tidak ingin mengubah gambar</small><br>
 
                 <button type="submit" name="update" class="btn btn-primary">
                     Edit data

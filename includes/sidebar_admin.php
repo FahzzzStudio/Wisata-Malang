@@ -5,8 +5,8 @@
 <div class="sidebar">
     <div class="sidebar-header">
         <h2>Malang</h2>
-        <ul class="siderbar-menu">
-            <li><a href="../admin/">Home</a></li>
+        <ul class="sidebar-menu">
+            <li><a href="../wisata/index.php">Home</a></li>
             <li><a href="../wisata/index.php">Kelola Wisata</a></li>
             <li><a href="../kelola_users/index.php">Kelola Pengguna</a></li>
             <li><a href="../">Kelola admin</a></li>
