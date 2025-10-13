@@ -146,6 +146,7 @@ body {
     min-height: calc(100vh - 70px);
 }
 
+/* Page header */
 .page-header {
     margin-bottom: 30px;
 }
@@ -153,7 +154,7 @@ body {
 .page-header h1 {
     font-size: 32px;
     font-weight: 700;
-    /* color: #fff; */
+    color: var(--primary-color);
     margin-bottom: 8px;
 }
 
@@ -163,7 +164,25 @@ body {
     margin: 0;
 }
 
-/* Form */
+.page-header button {
+    font-family: "poppins", sans-serif;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+    padding: 14px 28px;
+    margin-top: 14px;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.page-header button:hover {
+    transform: translateY(-2px);
+}
+
+/* Form Default*/
 
 .form-container {
     background: var(--light-gray);
@@ -236,6 +255,9 @@ body {
     transform: translateY(-2px);
 }
 
+/* Form Edit */
+
+
 /* Tabel */
 
 .table-container {
@@ -274,6 +296,7 @@ th {
     color: var(--white);
     font-weight: 600;
     font-size: 14px;
+    border-radius: 12px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }

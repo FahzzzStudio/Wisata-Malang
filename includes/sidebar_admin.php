@@ -8,9 +8,9 @@
         <ul class="sidebar-menu">
             <li><a href="../wisata/index.php">Home</a></li>
             <li><a href="../wisata/index.php">Kelola Wisata</a></li>
-            <li><a href="../kelola_users/index.php">Kelola Pengguna</a></li>
-            <li><a href="../">Kelola admin</a></li>
-            <li><a href="../">Logout</a></li>
+            <li><a href="#">Kelola Pengguna</a></li>
+            <li><a href="#">Kelola admin</a></li>
+            <li><a href="#">Logout</a></li>
         </ul>
     </div>
 </div>

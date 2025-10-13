@@ -24,7 +24,7 @@ $wisata = ambilSemuaWisata($db);
         <div class="page-header">
             <h1>Kelola Data Wisata</h1>
             <p class="page-subtitle">Tempat dimana untuk mengelola data wisata yang ada</p>
-            <a href="../../../pages/admin/wisata/tambah.php">Tambah Wisata</a>
+            <button><a href="../../../pages/admin/wisata/tambah.php">Tambah Wisata</a></button>
         </div>
 
         <div class="table-container">
