@@ -296,7 +296,7 @@ th {
     color: var(--white);
     font-weight: 600;
     font-size: 14px;
-    border-radius: 12px;
+    /* border-radius: 12px; */
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }

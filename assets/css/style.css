@@ -165,9 +165,9 @@ BUTTON STYLES
 =================================== */
 .btn {
 display: inline-block;
-padding: 0.75rem 1.5rem;
-border-radius: var(--radius-full);
-font-weight: 600;
+padding: 12px 14px;
+border-radius: 8px;
+font-weight: 800;
 text-align: center;
 cursor: pointer;
 transition: var(--transition);
@@ -281,7 +281,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 font-size: 2rem;
-color: var(--primary-color);
+color: var(--white);
 }
 
 .feature-card h3 {
@@ -603,8 +603,8 @@ object-fit: cover;
 CTA SECTION
 =================================== */
 .cta-section {
-background: linear-gradient(rgba(23, 162, 184, 0.9), rgba(23, 162, 184, 0.9)),
-    url("/placeholder.svg?height=400&width=1200") center / cover;
+/* background: linear-gradient(rgba(23, 162, 184, 0.9), rgba(23, 162, 184, 0.9)),
+    url("/placeholder.svg?height=400&width=1200") center / cover; */
 color: var(--white);
 padding: var(--spacing-xl) 0;
 text-align: center;
@@ -653,7 +653,7 @@ font-size: 1.1rem;
 FOOTER STYLES
 =================================== */
 .footer {
-background: var(--primary-color);
+background: var(--primary-dark);
 color: var(--white);
 padding: var(--spacing-xl) 0 var(--spacing-md);
 }
@@ -736,6 +736,24 @@ margin-top: 3px;
 text-align: center;
 padding-top: var(--spacing-md);
 border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ===================================
+SIGNUP & SIGNIN
+=================================== */
+
+.body-sign {
+    margin: 0;
+    min-height: 100vh;
+    line-height: 1.6;
+    /* display: flex; */
+    /* align-items: center; */
+    justify-content: center; /* pusatkan semua konten secara vertikal dan horizontal */
+    font-family: "poppins", sans-serif;
+    /* background: linear-gradient(180deg, var(--primary-color), #fff); */
+    background: var(--primary-color);
+    padding: 24px;
+    color: #222;
 }
 
 /* ===================================
