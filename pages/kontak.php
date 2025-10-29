@@ -51,8 +51,8 @@ include '../includes/header.php';
                 
                 <div style="display: flex; flex-direction: column; gap: 1.5rem;">
                     <div style="background: white; padding: 1.5rem; border-radius: 1rem; box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 60px; height: 60px; background: var(--primary-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                            <i class="fas fa-map-marker-alt" style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                        <div style="width: 60px; height: 60px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <i class="fas fa-map-marker-alt" style="color: var(--white); font-size: 1.5rem;"></i>
                         </div>
                         <div>
                             <h4 style="margin-bottom: 0.25rem;">Alamat</h4>
@@ -61,8 +61,8 @@ include '../includes/header.php';
                     </div>
                     
                     <div style="background: white; padding: 1.5rem; border-radius: 1rem; box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 60px; height: 60px; background: var(--primary-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                            <i class="fas fa-phone" style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                        <div style="width: 60px; height: 60px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <i class="fas fa-phone" style="color: var(--white); font-size: 1.5rem;"></i>
                         </div>
                         <div>
                             <h4 style="margin-bottom: 0.25rem;">Telepon</h4>
@@ -71,8 +71,8 @@ include '../includes/header.php';
                     </div>
                     
                     <div style="background: white; padding: 1.5rem; border-radius: 1rem; box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 60px; height: 60px; background: var(--primary-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                            <i class="fas fa-envelope" style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                        <div style="width: 60px; height: 60px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <i class="fas fa-envelope" style="color: var(--white); font-size: 1.5rem;"></i>
                         </div>
                         <div>
                             <h4 style="margin-bottom: 0.25rem;">Email</h4>
