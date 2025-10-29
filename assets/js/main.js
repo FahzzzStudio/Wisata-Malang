@@ -237,3 +237,24 @@ document.querySelectorAll("img[data-src]").forEach((img) => {
     imageObserver.observe(img)
 })
 }
+
+// Hero section background image slider
+const images = [
+    "../assets/img/banner1.png",
+    "../assets/img/banner2.png",
+    "../assets/img/banner3.png",
+];
+
+let currentIndex = 0;
+const hero = document.querySelector('.hero');
+
+function changeBackground() {
+    currentIndex = (currentIndex + 1) % images.length;
+    hero.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${images[currentIndex]}')`;
+    hero.classList.add('fade');
+    setTimeout(() => {
+        hero.classList.remove('fade');
+    }, 1000); // durasi animasi fade (ms)
+}
+
+setInterval(changeBackground, 5000); // Ganti gambar tiap 5 detik
