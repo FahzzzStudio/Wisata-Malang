@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- Sign In Form  -->
     <section class="section">
         <div class="container">
-            <div style="max-width: 500px; margin: 0 auto;">
+            <div style="max-width: 600px; margin: 0 auto;">
                 <div style="background: white; padding: 3rem; border-radius: 1rem; box-shadow: var(--shadow-lg);">
                     <h2 style="text-align: center; margin-bottom: 0.5rem; color: var(--dark);">Selamat Datang Kembali</h2>
                     <p style="text-align: center; color: var(--dark-gray); margin-bottom: 2rem;">Masuk ke akun Anda</p>
