@@ -1,6 +1,9 @@
 <?php 
 // Include header yang sudah ada session_start dan koneksi database
 include '../includes/header.php'; 
+require_once "../config/functions.php";
+require_once "../config/database.php";
+require_once "../config/config.php";
 
 // Ambil data wisata populer (6 wisata pertama)
 $wisata_populer = ambilSemuaWisata($db);
@@ -21,8 +24,8 @@ $wisata_populer = array_slice($wisata_populer, 0, 6);
     <section class="hero">
         <div class="hero-content">
             <h1>Jelajahi dan nikmati<br>keindahannya seluruh wisata<br>Malang Raya</h1>
-            <p>Temukan destinasi wisata terbaik di Malang</p>
-            <a href="../pages/signin.php" class="btn btn-primary">Mulai Jelajahi</a>
+            <!-- <p>Temukan destinasi wisata terbaik di Malang</p> -->
+            <a href="../pages/signin.php" class="btn btn-primary">Ayo Mulai Jelajahi</a>
         </div>
     </section>
 
@@ -51,7 +54,7 @@ $wisata_populer = array_slice($wisata_populer, 0, 6);
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Wisata Kebudayaan</h3>
-                    <p>Rasakan pengalaman budaya lokal yang autentik dan berkesan</p>
+                    <p>Rasakan pengalaman budaya lokal yang autentik dan berkesan di Malang</p>
                 </div>
             </div>
         </div>
@@ -70,25 +73,25 @@ $wisata_populer = array_slice($wisata_populer, 0, 6);
                     <?php foreach (array_slice($wisata_populer, 0, 3) as $wisata): ?>
                         <div class="destination-card">
                             <div class="card-image">
-                                <img src="/assets/img/<?php echo htmlspecialchars($wisata['gambar']); ?>" 
-                                    alt="<?php echo htmlspecialchars($wisata['nama']); ?>">
+                                <img src="<?= $base_url ?>uploads/<?= htmlspecialchars($wisata['gambar']); ?>" 
+                                    alt="<?= htmlspecialchars($wisata['nama']); ?>">
                                 <div class="card-badge">
                                     <i class="fas fa-star"></i>
-                                    <span><?php echo number_format($wisata['rating'], 1); ?></span>
+                                    <span><?= number_format($wisata['rating'], 1); ?></span>
                                 </div>
-                                <div class="card-favorite" onclick="toggleFavorite(this, <?php echo $wisata['id']; ?>)" 
-                                    data-wisata-id="<?php echo $wisata['id']; ?>">
+                                <div class="card-favorite" onclick="toggleFavorite(this, <?= $wisata['id']; ?>)" 
+                                    data-wisata-id="<?= $wisata['id']; ?>">
                                     <i class="far fa-heart"></i>
                                 </div>
                             </div>
                             <div class="card-content">
-                                <p class="card-category"><?php echo htmlspecialchars($wisata['kategori']); ?></p>
-                                <h3 class="card-title"><?php echo htmlspecialchars($wisata['nama']); ?></h3>
+                                <p class="card-category"><?= htmlspecialchars($wisata['kategori']); ?></p>
+                                <h3 class="card-title"><?= htmlspecialchars($wisata['nama']); ?></h3>
                                 <p class="card-location">
                                     <i class="fas fa-map-marker-alt"></i>
-                                    <span><?php echo htmlspecialchars($wisata['lokasi']); ?></span>
+                                    <span><?= htmlspecialchars($wisata['lokasi']); ?></span>
                                 </p>
-                                <a href="/pages/detail.php?id=<?php echo $wisata['id']; ?>" 
+                                <a href="../pages/detail.php?id=<?= $wisata['id']; ?>" 
                                     class="btn btn-primary" style="width: 100%;">Lihat detail wisata</a>
                             </div>
                         </div>
@@ -99,7 +102,7 @@ $wisata_populer = array_slice($wisata_populer, 0, 6);
             </div>
             
             <div class="text-center mt-4">
-                <a href="/pages/kategori.php" class="btn btn-outline">Lihat lebih banyak</a>
+                <a href="../pages/kategori.php" class="btn btn-outline">Lihat lebih banyak</a>
             </div>
         </div>
     </section>
@@ -114,15 +117,15 @@ $wisata_populer = array_slice($wisata_populer, 0, 6);
             
             <div class="journey-content">
                 <div class="journey-image">
-                    <img src="/placeholder.svg?height=400&width=500" alt="Scenic View">
+                    <img src="../assets/img/18.png" alt="Scenic View">
                 </div>
                 
                 <div class="journey-steps">
                     <div class="journey-step">
                         <div class="step-number">01</div>
                         <div class="step-content">
-                            <h3>Temukan Pesona yang Tersembunyi!</h3>
-                            <p>Jelajahi destinasi wisata yang belum banyak diketahui orang. Dari air terjun tersembunyi hingga desa wisata yang menenangkan, Malang menyimpan banyak kejutan.</p>
+                            <h3>Temukan Pesona yang Tersembunyi</h3>
+                            <p>Jelajahi destinasi wisata yang belum banyak diketahui orang. Setiap sudutnya menyimpan cerita yang menunggu untuk kamu rasakan, Malang menyimpan banyak kejutan.</p>
                         </div>
                     </div>
                     
@@ -130,15 +133,15 @@ $wisata_populer = array_slice($wisata_populer, 0, 6);
                         <div class="step-number">02</div>
                         <div class="step-content">
                             <h3>Buat Momen Jadi Tak Terlupakan</h3>
-                            <p>Nikmati setiap momen bersama keluarga atau teman di tempat-tempat yang dirancang untuk menciptakan kenangan indah. Spot foto instagramable ada di mana-mana!</p>
+                            <p>Nikmati setiap momen bersama keluarga atau teman di tempat-tempat yang dirancang untuk menciptakan kenangan indah.</p>
                         </div>
                     </div>
                     
                     <div class="journey-step">
                         <div class="step-number">03</div>
                         <div class="step-content">
-                            <h3>Biarkan Malang Mengejutkanmu!</h3>
-                            <p>Setiap sudut Malang punya cerita. Dari kuliner legendaris hingga seni jalanan yang memukau, kota ini siap memberikan pengalaman yang tak terduga.</p>
+                            <h3>Biarkan Malang Menginspirasi</h3>
+                            <p>Setiap sudut Malang punya cerita. Keindahan alam, budaya & suasana hangat masyarakatnya akan membuatmu jatuh hati sejak pertama kali menjejakkan kaki</p>
                         </div>
                     </div>
                 </div>
@@ -159,25 +162,25 @@ $wisata_populer = array_slice($wisata_populer, 0, 6);
                     <?php foreach (array_slice($wisata_populer, 3, 3) as $wisata): ?>
                         <div class="destination-card">
                             <div class="card-image">
-                                <img src="/assets/img/<?php echo htmlspecialchars($wisata['gambar']); ?>" 
-                                    alt="<?php echo htmlspecialchars($wisata['nama']); ?>">
+                                <img src="<?= $base_url ?>uploads/<?= htmlspecialchars($wisata['gambar']); ?>" 
+                                    alt="<?= htmlspecialchars($wisata['nama']); ?>">
                                 <div class="card-badge">
                                     <i class="fas fa-star"></i>
-                                    <span><?php echo number_format($wisata['rating'], 1); ?></span>
+                                    <span><?= number_format($wisata['rating'], 1); ?></span>
                                 </div>
-                                <div class="card-favorite" onclick="toggleFavorite(this, <?php echo $wisata['id']; ?>)" 
-                                    data-wisata-id="<?php echo $wisata['id']; ?>">
+                                <div class="card-favorite" onclick="toggleFavorite(this, <?= $wisata['id']; ?>)" 
+                                    data-wisata-id="<?= $wisata['id']; ?>">
                                     <i class="far fa-heart"></i>
                                 </div>
                             </div>
                             <div class="card-content">
-                                <p class="card-category"><?php echo htmlspecialchars($wisata['kategori']); ?></p>
-                                <h3 class="card-title"><?php echo htmlspecialchars($wisata['nama']); ?></h3>
+                                <p class="card-category"><?= htmlspecialchars($wisata['kategori']); ?></p>
+                                <h3 class="card-title"><?= htmlspecialchars($wisata['nama']); ?></h3>
                                 <p class="card-location">
                                     <i class="fas fa-map-marker-alt"></i>
-                                    <span><?php echo htmlspecialchars($wisata['lokasi']); ?></span>
+                                    <span><?= htmlspecialchars($wisata['lokasi']); ?></span>
                                 </p>
-                                <a href="/pages/detail.php?id=<?php echo $wisata['id']; ?>" 
+                                <a href="../pages/detail.php?id=<?= $wisata['id']; ?>" 
                                     class="btn btn-primary" style="width: 100%;">Lihat detail wisata</a>
                             </div>
                         </div>
@@ -186,7 +189,7 @@ $wisata_populer = array_slice($wisata_populer, 0, 6);
             </div>
             
             <div class="text-center mt-4">
-                <a href="/pages/kategori.php" class="btn btn-outline">Lihat lebih banyak</a>
+                <a href="../pages/kategori.php" class="btn btn-outline">Lihat lebih banyak</a>
             </div>
         </div>
     </section>
@@ -196,25 +199,25 @@ $wisata_populer = array_slice($wisata_populer, 0, 6);
         <div class="container">
             <div class="stats-content">
                 <div class="stats-image">
-                    <img src="/placeholder.svg?height=400&width=500" alt="Tourism Stats">
+                    <img src="../assets/img/7.png" alt="Tourism Stats">
                 </div>
                 
                 <div class="stats-info">
                     <h2>Kami Rekomendasikan<br>Wisata Terbaik di<br><span>Malang</span></h2>
-                    <p>Ratusan destinasi wisata menanti untuk dijelajahi. Dari wisata alam yang memukau hingga kuliner legendaris, semua ada di Malang.</p>
+                    <p>Ratusan destinasi wisata menanti untuk dijelajahi. Dari wisata alam, buatan, hingga budaya semua ada di Malang.</p>
                     
                     <div class="stats-grid">
                         <div class="stat-box">
-                            <div class="stat-number">150+</div>
-                            <div class="stat-label">Wisata</div>
+                            <div class="stat-number">130+</div>
+                            <div class="stat-label">Wisata Alam</div>
                         </div>
                         <div class="stat-box">
                             <div class="stat-number">50+</div>
-                            <div class="stat-label">Kuliner</div>
+                            <div class="stat-label">Wisata Buatan</div>
                         </div>
                         <div class="stat-box">
-                            <div class="stat-number">20+</div>
-                            <div class="stat-label">Hotel</div>
+                            <div class="stat-number">107+</div>
+                            <div class="stat-label">Wisata Budaya</div>
                         </div>
                     </div>
                 </div>
@@ -232,28 +235,28 @@ $wisata_populer = array_slice($wisata_populer, 0, 6);
             
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="/placeholder.svg?height=250&width=300" alt="Gallery 1">
+                    <img src="../assets/img/6.png" alt="Gallery 1">
                 </div>
                 <div class="gallery-item">
-                    <img src="/placeholder.svg?height=250&width=300" alt="Gallery 2">
+                    <img src="../assets/img/8.png" alt="Gallery 2">
                 </div>
                 <div class="gallery-item">
-                    <img src="/placeholder.svg?height=250&width=300" alt="Gallery 3">
+                    <img src="../assets/img/9.png" alt="Gallery 3">
                 </div>
                 <div class="gallery-item">
-                    <img src="/placeholder.svg?height=250&width=300" alt="Gallery 4">
+                    <img src="../assets/img/10.png" alt="Gallery 4">
                 </div>
                 <div class="gallery-item">
-                    <img src="/placeholder.svg?height=250&width=300" alt="Gallery 5">
+                    <img src="../assets/img/12.png" alt="Gallery 5">
                 </div>
                 <div class="gallery-item">
-                    <img src="/placeholder.svg?height=250&width=300" alt="Gallery 6">
+                    <img src="../assets/img/13.png" alt="Gallery 6">
                 </div>
                 <div class="gallery-item">
-                    <img src="/placeholder.svg?height=250&width=300" alt="Gallery 7">
+                    <img src="../assets/img/14.png" alt="Gallery 7">
                 </div>
                 <div class="gallery-item">
-                    <img src="/placeholder.svg?height=250&width=300" alt="Gallery 8">
+                    <img src="../assets/img/16.png" alt="Gallery 8">
                 </div>
             </div>
         </div>
@@ -280,6 +283,8 @@ $wisata_populer = array_slice($wisata_populer, 0, 6);
     </section> -->
 
     <?php include '../includes/footer.php'; ?>
+
+    <script src="../../assets/js/script.js?v=<?= time() ?>"></script>
 
 </body>
 </html>
