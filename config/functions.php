@@ -92,7 +92,7 @@ function updateWisata($koneksi, $data, $file, $id) {
     if ($_FILES['gambar']['name'] != '') {
         $gambar = $_FILES['gambar']['name'];
         $tmp = $_FILES['gambar']['tmp_name'];
-        move_uploaded_file($tmp, "../../uploads/" . $gambar);
+        move_uploaded_file($tmp, "../../../uploads/" . $gambar);
     } else {
         // Kalau tidak ganti, tetap pakai yang lama
         $result = mysqli_query($koneksi, "SELECT gambar FROM wisata WHERE id=$id");
