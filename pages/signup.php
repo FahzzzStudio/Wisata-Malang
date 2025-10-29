@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </form>
                     
                     <p style="text-align: center; margin-top: 1.5rem; color: var(--dark-gray);">
-                        Sudah punya akun? <a href="/signin.php" style="color: var(--primary-color); font-weight: 600;">Sign In</a>
+                        Sudah punya akun? <a href="signin.php" style="color: var(--primary-color); font-weight: 600;">Sign In</a>
                     </p>
                 </div>
             </div>
