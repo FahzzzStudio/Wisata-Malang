@@ -9,7 +9,7 @@ require_once __DIR__ . '/database.php';
 
 // Fungsi untuk mengambil semua data wisata
 function ambilSemuaWisata($koneksi) {
-    $query = "SELECT * FROM wisata ORDER BY created_at DESC";
+    $query = "SELECT * FROM wisata ORDER BY id DESC";
     $result = mysqli_query($koneksi, $query);
     
     $data = [];
@@ -32,7 +32,7 @@ function ambilWisataById($koneksi, $id) {
 // Fungsi untuk mengambil wisata berdasarkan kategori
 function ambilWisataByKategori($koneksi, $kategori) {
     $kategori = mysqli_real_escape_string($koneksi, $kategori);
-    $query = "SELECT * FROM wisata WHERE kategori = '$kategori' ORDER BY created_at DESC";
+    $query = "SELECT * FROM wisata WHERE kategori = '$kategori' ORDER BY id DESC";
     $result = mysqli_query($koneksi, $query);
     
     $data = [];
@@ -46,7 +46,7 @@ function ambilWisataByKategori($koneksi, $kategori) {
 // Fungsi untuk mencari wisata berdasarkan nama
 function cariWisata($koneksi, $keyword) {
     $keyword = mysqli_real_escape_string($koneksi, $keyword);
-    $query = "SELECT * FROM wisata WHERE nama LIKE '%$keyword%' OR lokasi LIKE '%$keyword%' ORDER BY created_at DESC";
+    $query = "SELECT * FROM wisata WHERE nama LIKE '%$keyword%' OR lokasi LIKE '%$keyword%' ORDER BY id DESC";
     $result = mysqli_query($koneksi, $query);
     
     $data = [];
@@ -65,14 +65,16 @@ function tambahWisata($koneksi, $data) {
     $deskripsi = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['deskripsi']));
     $gambar = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['gambar']));
     $rating = isset($data['rating']) ? floatval($data['rating']) : 5.0;
+    $jam_operasional = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['operasional']));
+    $harga_tiket = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['harga']));
 
     // Upload file gambar
     $poster = $_FILES['poster']['name'];
     $tmp = $_FILES['poster']['tmp_name'];
     move_uploaded_file($tmp, "../../uploads/" . $poster);
     
-    $query = "INSERT INTO wisata (nama, kategori, lokasi, deskripsi, gambar, rating) 
-            VALUES ('$nama', '$kategori', '$lokasi', '$deskripsi', '$gambar', '$rating')";
+    $query = "INSERT INTO wisata (nama, kategori, lokasi, deskripsi, gambar, rating, jam_operasional, harga_tiket) 
+            VALUES ('$nama', '$kategori', '$lokasi', '$deskripsi', '$gambar', '$rating', '$jam_operasional', '$harga_tiket')";
     
     return mysqli_query($koneksi, $query);
 }
@@ -85,16 +87,20 @@ function updateWisata($koneksi, $data, $file, $id) {
     $kategori = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['kategori']));
     $lokasi = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['lokasi']));
     $deskripsi = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['deskripsi']));
-    $gambar = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['gambar']));
+    // $gambar = htmlspecialchars(mysqli_real_escape_string($koneksi, $data['gambar']));
     $rating = isset($data['rating']) ? floatval($data['rating']) : 5.0;
+    $gambar = ''; // akan ditentukan nanti lewat $_FILES
+    $jam_operasional = isset($data['operasional']) ? mysqli_real_escape_string($koneksi, $data['operasional']) : '';
+    $harga_tiket = isset($data['harga']) ? mysqli_real_escape_string($koneksi, $data['harga']) : '';
 
     // Cek poster baru
-    if ($_FILES['gambar']['name'] != '') {
+    // Upload file gambar baru (jika ada)
+    if (!empty($_FILES['gambar']['name'])) {
         $gambar = $_FILES['gambar']['name'];
         $tmp = $_FILES['gambar']['tmp_name'];
         move_uploaded_file($tmp, "../../../uploads/" . $gambar);
     } else {
-        // Kalau tidak ganti, tetap pakai yang lama
+        // Ambil gambar lama dari database
         $result = mysqli_query($koneksi, "SELECT gambar FROM wisata WHERE id=$id");
         $gambarRow = mysqli_fetch_assoc($result);
         $gambar = $gambarRow['gambar'];
@@ -106,7 +112,9 @@ function updateWisata($koneksi, $data, $file, $id) {
             lokasi = '$lokasi',
             deskripsi = '$deskripsi',
             gambar = '$gambar',
-            rating = '$rating'
+            rating = '$rating',
+            jam_operasional = '$jam_operasional',
+            harga_tiket = '$harga_tiket'
             WHERE id = '$id'";
 
     return mysqli_query($koneksi, $query);
