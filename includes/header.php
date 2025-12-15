@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 // Include functions
-// require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/functions.php';
 
 // Cek status login
@@ -36,6 +36,50 @@ $halaman_sekarang = basename($_SERVER['PHP_SELF'], '.php');
 
     <!-- Font Awesome untuk icon  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .profile-menu {
+            position: relative;
+        }
+
+        .profile-dropdown {
+            position: absolute;
+            top: 120%;
+            right: 0;
+            background: #fff;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-md);
+            min-width: 160px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.25s ease;
+            z-index: 1000;
+        }
+
+        .profile-menu:hover .profile-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .profile-dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.75rem 1rem;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .profile-dropdown a:hover {
+            background: #f5f5f5;
+        }
+
+        .profile-dropdown .logout {
+            color: #dc3545;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar  -->
@@ -43,7 +87,7 @@ $halaman_sekarang = basename($_SERVER['PHP_SELF'], '.php');
         <div class="container">
             <div class="nav-wrapper">
                 <!-- Logo  -->
-                <a href="../pages/index.php" class="logo">
+                <a href="<?= BASE_URL ?>pages/index.php" class="logo">
                     <span class="logo-text">Malang</span>
                 </a>
                 
@@ -57,21 +101,36 @@ $halaman_sekarang = basename($_SERVER['PHP_SELF'], '.php');
                 <!-- Navigation Menu  -->
                 <div class="nav-menu" id="navMenu">
                     <ul class="nav-links">
-                        <li><a href="../pages/index.php" class="<?php echo $halaman_sekarang == 'index' ? 'active' : ''; ?>">Beranda</a></li>
-                        <li><a href="../pages/kategori.php" class="<?php echo $halaman_sekarang == 'kategori' ? 'active' : ''; ?>">Kategori</a></li>
-                        <li><a href="../pages/tentang.php" class="<?php echo $halaman_sekarang == 'tentang' ? 'active' : ''; ?>">Tentang Kami</a></li>
-                        <li><a href="../pages/kontak.php" class="<?php echo $halaman_sekarang == 'kontak' ? 'active' : ''; ?>">Kontak</a></li>
+                        <li><a href="<?= BASE_URL ?>pages/index.php" class="<?php echo $halaman_sekarang == 'index' ? 'active' : ''; ?>">Beranda</a></li>
+                        <li><a href="<?= BASE_URL ?>pages/kategori.php" class="<?php echo $halaman_sekarang == 'kategori' ? 'active' : ''; ?>">Kategori</a></li>
+                        <li><a href="<?= BASE_URL ?>pages/tentang.php" class="<?php echo $halaman_sekarang == 'tentang' ? 'active' : ''; ?>">Tentang Kami</a></li>
+                        <li><a href="<?= BASE_URL ?>pages/kontak.php" class="<?php echo $halaman_sekarang == 'kontak' ? 'active' : ''; ?>">Kontak</a></li>
                     </ul>
                     
                     <!-- Auth Buttons  -->
                     <div class="nav-actions">
                         <?php if ($sudah_login): ?>
-                            <a href="/pages/favorite.php" class="btn-icon" title="Wisata Favorite">
+                            <a href="<?= BASE_URL ?>pages/users/favorite.php" class="btn-icon" title="Wisata Favorite">
                                 <i class="fas fa-heart"></i>
                             </a>
-                            <a href="/pages/profile.php" class="btn-icon" title="Profile">
+                            <!-- <a href="<?= BASE_URL ?>pages/users/profile.php" class="btn-icon" title="Profile">
                                 <i class="fas fa-user"></i>
-                            </a>
+                            </a> -->
+                            <div class="profile-menu">
+                                <div class="btn-icon profile-trigger">
+                                    <i class="fas fa-user"></i>
+                                </div>
+
+                                <div class="profile-dropdown">
+                                    <a href="<?= BASE_URL ?>pages/users/profile.php">
+                                        <i class="fas fa-id-card"></i> Profil
+                                    </a>
+                                    <a href="<?= BASE_URL ?>pages/users/logout.php" class="logout">
+                                        <i class="fas fa-sign-out-alt"></i> Keluar
+                                    </a>
+                                </div>
+                            </div>
+
                         <?php else: ?>
                             <a href="../pages/signin.php" class="btn btn-outline">Sign In</a>
                             <a href="../pages/signup.php" class="btn btn-primary">Sign Up</a>
