@@ -1,10 +1,11 @@
 <?php 
 // Include header yang sudah ada session_start dan koneksi database
-// include '../includes/header.php'; 
+require_once __DIR__ . '/../config/functions.php';
+require_once __DIR__ . '/../config/config.php';
 
 // Jika sudah login, redirect ke profile
 if (isset($_SESSION['user_id'])) {
-    header('Location: /pages/profile.php');
+    header('Location: /app_wisata_malang/pages/');
     exit;
 }
 
@@ -18,9 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = loginUser($db, $email, $password);
         if ($user) {
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_nama'] = $user['nama'];
+            $_SESSION['user_nama'] = $user['nama_lengkap'];
             $_SESSION['user_email'] = $user['email'];
-            header('Location: /index.php');
+            header('Location: /app_wisata_malang/pages/');
             exit;
         } else {
             $error = 'Email atau password salah!';
@@ -41,13 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body class="body-sign">
-    <!-- Hero Section  -->
-    <!-- <section class="hero" style="height: 300px;">
-        <div class="hero-content">
-            <h1>Sign In</h1>
-        </div>
-    </section> -->
-
     <!-- Sign In Form  -->
     <section class="section">
         <div class="container">
