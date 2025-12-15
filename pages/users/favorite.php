@@ -10,20 +10,20 @@ if (!isLoggedIn()) {
 include '../../includes/header.php'; 
 ?>
 
-Hero Section 
+<!-- Hero Section  -->
 <section class="hero" style="height: 300px;">
     <div class="hero-content">
         <h1>Tempat Wisata Favorite</h1>
     </div>
 </section>
 
-Favorite Content 
+<!-- Favorite Content  -->
 <section class="section">
     <div class="container">
         <div class="destinations-grid">
-            Card 1 
+            <!-- Card 1  -->
             <div class="destination-card">
-                <div class="card-image">
+                <!-- <div class="card-image">
                     <img src="/placeholder.svg?height=200&width=300" alt="Jawa Timur Park 1">
                     <div class="card-badge">
                         <i class="fas fa-star"></i>
@@ -42,10 +42,10 @@ Favorite Content
                     </p>
                     <a href="<?php echo BASE_URL; ?>pages/detail.php?id=1" class="btn btn-primary" style="width: 100%;">Lihat detail wisata</a>
                 </div>
-            </div>
+            </div> -->
             
-            Card 2 
-            <div class="destination-card">
+            <!-- Card 2  -->
+            <!-- <div class="destination-card">
                 <div class="card-image">
                     <img src="/placeholder.svg?height=200&width=300" alt="Flora Wisata San Terra">
                     <div class="card-badge">
@@ -65,10 +65,10 @@ Favorite Content
                     </p>
                     <a href="<?php echo BASE_URL; ?>pages/detail.php?id=2" class="btn btn-primary" style="width: 100%;">Lihat detail wisata</a>
                 </div>
-            </div>
+            </div> -->
             
-            Card 3 
-            <div class="destination-card">
+            <!-- Card 3  -->
+            <!-- <div class="destination-card">
                 <div class="card-image">
                     <img src="/placeholder.svg?height=200&width=300" alt="Batu Night Spectacular">
                     <div class="card-badge">
@@ -88,10 +88,10 @@ Favorite Content
                     </p>
                     <a href="<?php echo BASE_URL; ?>pages/detail.php?id=3" class="btn btn-primary" style="width: 100%;">Lihat detail wisata</a>
                 </div>
-            </div>
+            </div> -->
             
-            Duplicate untuk menampilkan lebih banyak 
-            <div class="destination-card">
+            <!-- Duplicate untuk menampilkan lebih banyak  -->
+            <!-- <div class="destination-card">
                 <div class="card-image">
                     <img src="/placeholder.svg?height=200&width=300" alt="Jawa Timur Park 1">
                     <div class="card-badge">
@@ -155,10 +155,10 @@ Favorite Content
                     </p>
                     <a href="<?php echo BASE_URL; ?>pages/detail.php?id=3" class="btn btn-primary" style="width: 100%;">Lihat detail wisata</a>
                 </div>
-            </div>
+            </div> -->
         </div>
         
-        Pagination 
+        <!-- Pagination  -->
         <div class="pagination" style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 3rem;">
             <a href="#" class="btn btn-primary" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 0.5rem;">1</a>
             <a href="#" class="btn btn-outline" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 0.5rem;">2</a>
