@@ -73,14 +73,14 @@ if (isset($_SESSION['user_id'])) {
                             <i class="fas fa-clock"></i> Jam Operasional
                         </h3>
                         <p style="color: var(--dark-gray);">
-                            <?= htmlspecialchars($wisata['jam_buka']); ?>
+                            <?= htmlspecialchars($wisata['jam_operasional']); ?>
                         </p>
                     </div>
                     
                     <div style="background: white; padding: 1.5rem; border-radius: 1rem; box-shadow: var(--shadow-md);">
                         <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">
                             <i class="fas fa-ticket-alt"></i> Harga Tiket
-                        </h3>
+                        </h3>   
                         <p style="color: var(--dark-gray);">
                             <?= htmlspecialchars($wisata['harga_tiket']); ?>
                         </p>
@@ -89,8 +89,8 @@ if (isset($_SESSION['user_id'])) {
             </div>
             
             <!-- Sidebar  -->
-            <!-- <div>
-                QR Code 
+            <div>
+                <!-- QR Code  -->
                 <div style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: var(--shadow-md); text-align: center; margin-bottom: 1.5rem;">
                     <img src="/assets/img/qr/<?= htmlspecialchars($wisata['qr_code']); ?>" 
                         alt="QR Code Lokasi" 
@@ -103,7 +103,7 @@ if (isset($_SESSION['user_id'])) {
                     </a>
                 </div>
                 
-                Favorite Button 
+                <!-- Favorite Button  -->
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <button onclick="toggleFavorite(this, <?= $id_wisata; ?>)" 
                             class="btn <?= $is_favorited ? 'btn-primary' : 'btn-outline'; ?>" 
@@ -118,11 +118,11 @@ if (isset($_SESSION['user_id'])) {
                     </a>
                 <?php endif; ?>
                 
-                Share Button 
+                <!-- Share Button  -->
                 <button onclick="shareWisata()" class="btn btn-outline" style="width: 100%;">
                     <i class="fas fa-share-alt"></i> Bagikan Wisata
                 </button>
-            </div> -->
+            </div>
         </div>
     </div>
 </section>
