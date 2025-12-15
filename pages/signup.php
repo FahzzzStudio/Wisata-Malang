@@ -1,7 +1,7 @@
 <?php 
 // Include header yang sudah ada session_start dan koneksi database
 require_once __DIR__ . '/../config/functions.php';
-// require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/../config/config.php';
 
 // include '../includes/header.php'; 
 
@@ -16,22 +16,39 @@ if (isset($_SESSION['user_id'])) {
 $error = '';
 $success = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nama = $_POST['nama'] ?? '';
+    $nama = $_POST['nama_lengkap'] ?? '';
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
-    $confirm_password = $_POST['confirm_password'] ?? '';
+    // $confirm_password = $_POST['confirm_password'] ?? '';
     
-    if ($nama && $email && $password && $confirm_password) {
-        if ($password !== $confirm_password) {
-            $error = 'Password dan konfirmasi password tidak cocok!';
-        } else {
-            // $result = registerUser($db, $nama, $email, $password);
+    if ($nama && $email && $password) {
+        // if ($password !== $confirm_password) {
+        //     $error = 'Password dan konfirmasi password tidak cocok!';
+        // } else {
+        //     $result = registrasiUser($db, $nama, $email, $password);
+        //     if ($result === true) {
+        //         $success = 'Registrasi berhasil! Silakan login.';
+        //     } else {
+        //         $error = $result;
+        //     }
+        // }
+        // if ($password !== $confirm_password) {
+        //     $error = 'Password dan konfirmasi password tidak cocok!';
+        // } else {
+            $data = [
+                'nama_lengkap' => $nama,
+                'email' => $email,
+                'password' => $password
+            ];
+
+            $result = registrasiUser($db, $data);
+
             if ($result === true) {
                 $success = 'Registrasi berhasil! Silakan login.';
             } else {
-                $error = $result;
+                $error = 'Email sudah terdaftar!';
             }
-        }
+        // }
     } else {
         $error = 'Semua field harus diisi!';
     }
@@ -82,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label class="form-label">Nama Lengkap</label>
                             <div class="input-icon">
                                 <i class="fas fa-user"></i>
-                                <input type="text" name="nama" class="form-input" placeholder="Masukkan nama lengkap" required>
+                                <input type="text" name="nama_lengkap" class="form-input" placeholder="Masukkan nama lengkap" required>
                             </div>
                         </div>
                         
@@ -102,13 +119,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                         </div>
                         
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label class="form-label">Konfirmasi Password</label>
                             <div class="input-icon">
                                 <i class="fas fa-lock"></i>
                                 <input type="password" name="confirm_password" class="form-input" placeholder="Konfirmasi password" required>
                             </div>
-                        </div>
+                        </div> -->
                         
                         <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Sign Up</button>
                     </form>
