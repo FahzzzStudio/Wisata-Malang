@@ -93,9 +93,9 @@ include '../includes/header.php';
                 </div>
                 
                 <!-- Map  -->
-                <div style="margin-top: 2rem; border-radius: 1rem; overflow: hidden; box-shadow: var(--shadow-md);">
+                <!-- <div style="margin-top: 2rem; border-radius: 1rem; overflow: hidden; box-shadow: var(--shadow-md);">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252230.02028974562!2d112.43253103750001!3d-7.9666204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd629dc2f2f2b45%3A0x2e8583e3a7b73b!2sMalang%2C%20East%20Java!5e0!3m2!1sen!2sid!4v1234567890" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
