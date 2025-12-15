@@ -30,7 +30,7 @@ include '../includes/header.php';
                     <p style="font-size: 1.2rem; color: var(--dark-gray); line-height: 1.8;">
                         Platform informasi wisata terlengkap untuk menjelajahi keindahan Malang Raya
                     </p>
-                <!-- </div>
+                </div>
                 
                 <div style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: var(--shadow-md); margin-bottom: 2rem;">
                     <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Tentang Website Ini</h3>
@@ -62,7 +62,7 @@ include '../includes/header.php';
                         <li>Mempromosikan keindahan dan keunikan destinasi wisata Malang</li>
                         <li>Mendukung pelaku usaha pariwisata lokal</li>
                     </ul>
-                </div> -->
+                </div>
             </div>
         </div>
     </section>
