@@ -12,19 +12,19 @@ require_once "../../../config/functions.php";
 //     exit;
 // }
 
-// $id = $_GET['id'] ?? null;
-// if (!$id) {
-//     header("Location: index.php");
-//     exit;
-// }
+$id = $_GET['id'] ?? null;
+if (!$id) {
+    header("Location: index.php");
+    exit;
+}
 
-// $user = ambilUserById($db, $id);
-// if (!$user) {
-//     header("Location: index.php");
-//     exit;
-// }
+$user = ambilUserById($db, $id);
+if (!$user) {
+    header("Location: index.php");
+    exit;
+}
 
-// $error = '';
+$error = '';
 
 // Proses update
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Pengguna - Admin</title>
-    <link rel="stylesheet" href="../../../assets/admin/style.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="../../../assets/admin/style2.css?v=<?= time() ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
