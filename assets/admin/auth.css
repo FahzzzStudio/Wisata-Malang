@@ -1,0 +1,169 @@
+/* ================================
+ADMIN LOGIN – SAME STYLE AS USER
+================================ */
+
+/* ambil semua variable user */
+:root {
+    --primary-color: #17a2b8;
+    --primary-dark: #138496;
+    --primary-light: #5bc0de;
+
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+    --gray: #e9ecef;
+    --dark-gray: #6c757d;
+    --dark: #343a40;
+    --black: #212529;
+
+    --font-primary: "Poppins", "Montserrat", sans-serif;
+
+    --radius-sm: 0.5rem;
+    --radius-md: 1rem;
+    --radius-lg: 1.5rem;
+
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+    --transition: all 0.3s ease;
+}
+
+/* body ADMIN LOGIN */
+body.login-admin {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-primary);
+    background: var(--primary-color);
+    padding: 24px;
+    color: var(--dark);
+}
+
+/* container sama seperti user */
+.admin-login-container {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* box login */
+.admin-login-box {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    box-shadow: var(--shadow-lg);
+}
+
+/* header */
+.admin-login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.admin-login-header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+.admin-login-header p {
+    font-size: 14px;
+    color: var(--dark-gray);
+}
+
+/* form */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* form group (SAMAKAN) */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--dark);
+}
+
+/* input icon (SAMAKAN USER) */
+.input-group {
+    position: relative;
+}
+
+.input-group i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--dark-gray);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    border: 2px solid var(--gray);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-family: var(--font-primary);
+    background: var(--light-gray);
+    transition: var(--transition);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: var(--white);
+}
+
+/* button (PAKAI STYLE USER) */
+.btn-login {
+    margin-top: 0.5rem;
+    width: 100%;
+    padding: 14px;
+    border-radius: var(--radius-sm);
+    border: none;
+    background: var(--primary-color);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-login:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* alert error */
+.alert {
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1rem;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.alert-danger {
+    background: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+/* footer */
+.login-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 12px;
+    color: var(--dark-gray);
+}
